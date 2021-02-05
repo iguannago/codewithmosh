@@ -6,6 +6,18 @@
     <meta name="description" content="david crespo personal web page" />
     <title>My first web page</title>
     <style>
+      table,
+      td,
+      th {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+
+      tfoot {
+        text-align: left;
+      }
+
       img.tweet-image {
         width: 100px;
         border-radius: 50px;
@@ -44,9 +56,17 @@
       Your browser doesn't support video.
     </video>
 
-    <a href="../part1/company/about.html">ABOUT ME</a>
-    <a href="../part1/images/davidcrespo.jpg">MY FAMILY</a>
-    <a href="#section-contact">CONTACT ME</a>
+    <ul>
+      <li>
+        <a href="../part1/company/about.html">ABOUT ME</a>
+      </li>
+      <li>
+        <a href="../part1/images/davidcrespo.jpg">MY FAMILY</a>
+      </li>
+      <li>
+        <a href="#section-contact">CONTACT ME</a>
+      </li>
+    </ul>
 
     <h2>Tweets &commat;</h2>
     <img
@@ -63,6 +83,12 @@
     </p>
 
     <h2>&ast; Some other thoughts &colon;&rpar;</h2>
+    <dl>
+      <dt>Title</dt>
+      <dd>some desc</dd>
+      <dt>Another title</dt>
+      <dd>some other desc</dd>
+    </dl>
     <img
       class="monkey-image"
       src="../part1/images/monkey.jpg"
@@ -130,6 +156,31 @@
       aliquam, error, ipsum corrupti blanditiis perferendis deleniti, nemo dicta
       dolores sint vel tempora?
     </p>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Expenses</th>
+        </tr>
+        <tr>
+          <th>Category</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Marketing</td>
+          <td>$100</td>
+        </tr>
+        <tr>
+          <td>Accounting</td>
+          <td>$200</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>Total</th>
+        <th>$300</th>
+      </tfoot>
+    </table>
     <h2 id="section-contact">&phone; Contact</h2>
     <a href="mailto:davidcrespoarroyo@gmail.com">Email Me</a>
     <p>
