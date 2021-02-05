@@ -6,11 +6,25 @@
     <meta name="description" content="david crespo personal web page" />
     <title>My first web page</title>
     <style>
-      img {
+      img.tweet-image {
         width: 100px;
         border-radius: 50px;
         float: left;
         margin-right: 10px;
+      }
+
+      img.monkey-image {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+
+      video {
+        display: block;
+        margin-bottom: 10px;
       }
 
       .username {
@@ -25,11 +39,21 @@
   </head>
   <body>
     <h1>David Crespo's web site &copy;</h1>
+
+    <video autoplay loop src="../part1/videos/ocean.mp4">
+      Your browser doesn't support video.
+    </video>
+
     <a href="../part1/company/about.html">ABOUT ME</a>
     <a href="../part1/images/davidcrespo.jpg">MY FAMILY</a>
     <a href="#section-contact">CONTACT ME</a>
+
     <h2>Tweets &commat;</h2>
-    <img src="images/davidcrespo.jpg" alt="david crespo image" />
+    <img
+      class="tweet-image"
+      src="images/davidcrespo.jpg"
+      alt="david crespo image"
+    />
     <p class="username">&commat;davidcrespo</p>
     <p>I love teaching <em>&lt;HTML&gt;</em></p>
     <p>
@@ -37,7 +61,13 @@
       rerum nam iusto dicta ea earum molestiae quia dolorum molestias, quis
       assumenda in ullam eos, a pariatur laudantium voluptatibus?
     </p>
+
     <h2>&ast; Some other thoughts &colon;&rpar;</h2>
+    <img
+      class="monkey-image"
+      src="../part1/images/monkey.jpg"
+      alt="monkey image"
+    />
     <p>
       &cularr; &oplus; Lorem, ipsum dolor sit amet consectetur adipisicing elit.
       Tenetur animi earum soluta exercitationem natus voluptas, quaerat
