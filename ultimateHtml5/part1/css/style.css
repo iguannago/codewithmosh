@@ -2,6 +2,14 @@ body {
   margin: 10px;
 }
 
+header>nav>a {
+  color: #9b0b0b;
+}
+
+.tweets p {
+  color: olivedrab
+}
+
 table,
 td,
 th {
