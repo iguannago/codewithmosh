@@ -1,3 +1,4 @@
+const Joi = require('joi');
 const express = require('express');
 const app = express();
 
@@ -32,13 +33,20 @@ app.get('/api/courses/:id', (req, res) => {
 });
 
 app.post('/api/courses', (req, res) => {
-    if (req.body.id == undefined || req.body.name == undefined) {
+    const schema = Joi.object({
+        name: Joi.string().required(),
+        id: Joi.number().required()
+    });
+
+    const {error} = schema.validate(req.body);
+    
+    if (error != undefined) {
         res.status(400).json({
-            "error": 400, 
-            "message": "id and name are required"
+            "error": error
         });
         return; 
     }
+
     const course = req.body;
     console.log(`course added successfully: ${JSON.stringify(course)}`);
     courses.push(course);
