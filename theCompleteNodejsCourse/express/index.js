@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-const courses = [{
+let courses = [{
     id: 1,
     name: 'course1'
 }, {
@@ -33,10 +33,7 @@ app.get('/api/courses/:id', (req, res) => {
 });
 
 app.post('/api/courses', (req, res) => {
-    const {error} = reqBodySchema.validate(req.body);
-    if (error != undefined) {
-        sendError(res, 400, error);
-    }
+    validateReqBody(req.body, res);
 
     const course = req.body;
     courses.push(course);
@@ -54,8 +51,7 @@ function validateReqBody(reqBody, res) {
     });
     let {error} = reqBodySchema.validate(reqBody);
     if (error != undefined) {
-        sendError(res, 400, error);
-        return;    
+        return sendError(res, 400, error);    
     }
 }
 
@@ -63,8 +59,7 @@ function validateIdReqParam(idReqParam,res) {
     const idReqParamSchema = Joi.number().required();
     let {error} = idReqParamSchema.validate(idReqParam);
     if (error != undefined) {
-        sendError(res, 400, error);
-        return;    
+        return sendError(res, 400, error);    
     }
 }
 
@@ -72,11 +67,7 @@ app.put('/api/courses/:id', (req, res) => {
     validateIdReqParam(req.params.id, res);
     validateReqBody(req.body, res);
    
-    const course = courses.find(c => c.id == req.params.id);
-    if (course == undefined ) {
-        sendError(res, 404, `course with id=${req.params.id} is not found`);
-        return ;
-    }
+    findCourse(req.params.id, res);
 
     const courseIndex = courses.findIndex(e => e.id == req.params.id);
     courses[courseIndex] = req.body;
@@ -86,8 +77,31 @@ app.put('/api/courses/:id', (req, res) => {
     });
 });
 
+app.delete('/api/courses/:id', (req, res) => {
+    validateIdReqParam(req.params.id, res);
+
+    findCourse(req.params.id, res);
+    
+    courseIndexToDelete = courses.findIndex(c => c.id == req.params.id);
+    courseToDelete = courses[courseIndexToDelete];
+    
+    courses = courses.filter(c => c.id != req.params.id);
+
+    res.json({
+        'message': `course deleted successfully`,
+        'course': courseToDelete
+    });
+});
+
+function findCourse(id, res) {
+    const course = courses.find(c => c.id == id);
+    if (course == undefined ) {
+        return sendError(res, 404, `course with id=${id} is not found`);
+    }
+}
+
 function sendError(res, errorCode, errorMsg) {
-    res.status(errorCode).json({ 
+    return res.status(errorCode).json({ 
         'error': errorMsg
     });
 }
@@ -96,4 +110,5 @@ const portNumber = process.env.PORT | 3000;
 app.listen(portNumber, ()=> {
     console.log(`Listening on port ${portNumber} ...`);
 });
+
 
