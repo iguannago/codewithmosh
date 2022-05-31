@@ -6,6 +6,15 @@ let numbers = [1, 2, 3];
 let user = [1, 'David'];
 let myEnum = 3;
 console.log(`my enum: ${myEnum}`);
+let employee = {
+    id: 1,
+    name: 'David',
+    retire: (date) => {
+        console.log(date);
+    },
+};
+console.log(`employee: ${JSON.stringify(employee)}`);
+console.log(`employee: ${JSON.stringify(employee)}`);
 if (age < 15)
     age += 10;
 numbers.forEach((n) => console.log(n));

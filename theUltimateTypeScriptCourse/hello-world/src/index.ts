@@ -13,8 +13,21 @@ const enum Size {
 }
 
 let myEnum: Size = Size.Large;
-
 console.log(`my enum: ${myEnum}`);
+
+let employee: {
+  id: number;
+  name: string;
+  retire: (date: Date) => void;
+} = {
+  id: 1,
+  name: 'David',
+  retire: (date: Date) => {
+    console.log(date);
+  },
+};
+console.log(`employee: ${JSON.stringify(employee)}`);
+console.log(`employee: ${JSON.stringify(employee)}`);
 
 if (age < 15) age += 10;
 
