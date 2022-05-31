@@ -1,9 +1,12 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 let age = 20;
 let sales = 123456789;
 let course = 'TypeScript';
 let numbers = [1, 2, 3];
 let user = [1, 'David'];
+let myEnum = 3;
+console.log(`my enum: ${myEnum}`);
 if (age < 15)
     age += 10;
 numbers.forEach((n) => console.log(n));

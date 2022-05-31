@@ -3,8 +3,20 @@ import { ModuleDetectionKind } from 'typescript';
 let age = 20;
 let sales = 123_456_789;
 let course = 'TypeScript';
+
 let numbers = [1, 2, 3];
+
 let user: [number, string] = [1, 'David'];
+
+const enum Size {
+  Small = 1,
+  Medium,
+  Large,
+}
+
+let myEnum: Size = Size.Large;
+
+console.log(`my enum: ${myEnum}`);
 
 if (age < 15) age += 10;
 
