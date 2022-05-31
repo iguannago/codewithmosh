@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 let age = 20;
 let sales = 123456789;
 let course = 'TypeScript';
@@ -20,4 +19,10 @@ render('myDocument.txt');
 function render(document) {
     console.log(`document is: ${document}`);
 }
+function calculateTax(income, taxYear = 2022) {
+    if (taxYear < 50000)
+        return income * 1.2;
+    return income * 1.3;
+}
+console.log(calculateTax(10000, 2021));
 //# sourceMappingURL=index.js.map

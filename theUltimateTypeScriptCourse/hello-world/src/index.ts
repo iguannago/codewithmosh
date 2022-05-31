@@ -1,5 +1,3 @@
-import { ModuleDetectionKind } from 'typescript';
-
 let age = 20;
 let sales = 123_456_789;
 let course = 'TypeScript';
@@ -35,3 +33,10 @@ render('myDocument.txt');
 function render(document: String) {
   console.log(`document is: ${document}`);
 }
+
+function calculateTax(income: number, taxYear: number = 2022): number {
+  if (taxYear < 50_000) return income * 1.2;
+  return income * 1.3;
+}
+
+console.log(calculateTax(10_000, 2021));
