@@ -23,3 +23,10 @@ let userType: User = {
 };
 
 console.log(`user type: ${JSON.stringify(userType)}`);
+
+function kgToLbs(weight: number | string): number {
+  if (typeof weight === 'number') return weight;
+  return 10;
+}
+
+console.log(`kgToLbs: ${kgToLbs('David')}`);

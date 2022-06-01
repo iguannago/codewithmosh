@@ -10,5 +10,12 @@ let userType = {
     name: 'David2',
     retire: (date) => console.log(date),
 };
-console.log(`user type: ${JSON.stringify(userType.retire(new Date()))}`);
+console.log(`user type: ${JSON.stringify(userType)}`);
+function kgToLbs(weight) {
+    if (typeof weight === 'number') {
+        return weight;
+    }
+    return 10;
+}
+console.log(`kgToLbs: ${kgToLbs('David')}`);
 //# sourceMappingURL=index.js.map
