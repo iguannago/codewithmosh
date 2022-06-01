@@ -30,3 +30,26 @@ function kgToLbs(weight: number | string): number {
 }
 
 console.log(`kgToLbs: ${kgToLbs('David')}`);
+
+type Draggable = {
+  drag: () => void;
+};
+
+type Resizable = {
+  resize: () => void;
+};
+
+type widget = Draggable & Resizable;
+
+let uiWidget: widget = {
+  drag: () => {},
+  resize: () => {},
+};
+
+let quantity: 50 | 100 = 100;
+type Quantity = 50 | 100;
+
+let myQuantity: Quantity = 100;
+
+
+
