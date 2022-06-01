@@ -35,4 +35,9 @@ function getCustomer(id) {
     return id === 0 ? null : { birthday: new Date() };
 }
 console.log(`getCustomer: ${(_a = getCustomer(0)) === null || _a === void 0 ? void 0 : _a.birthday}`);
+let speed = 0;
+let ride = {
+    speed: speed !== null && speed !== void 0 ? speed : 30,
+};
+console.log(ride.speed);
 //# sourceMappingURL=index.js.map

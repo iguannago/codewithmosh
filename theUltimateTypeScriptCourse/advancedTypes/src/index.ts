@@ -67,3 +67,11 @@ function getCustomer(id: number): Customer | null | undefined {
 }
 
 console.log(`getCustomer: ${getCustomer(0)?.birthday}`);
+
+let speed: number | null = 0;
+
+let ride = {
+  speed: speed ?? 30,
+};
+
+console.log(ride.speed);
