@@ -51,5 +51,19 @@ type Quantity = 50 | 100;
 
 let myQuantity: Quantity = 100;
 
+function greet(name: string) {
+  if (name) console.log(name.toLowerCase());
+  else console.log('Hola');
+}
 
+greet('David');
 
+type Customer = {
+  birthday: Date;
+};
+
+function getCustomer(id: number): Customer | null | undefined {
+  return id === 0 ? null : { birthday: new Date() };
+}
+
+console.log(`getCustomer: ${getCustomer(0)?.birthday}`);
