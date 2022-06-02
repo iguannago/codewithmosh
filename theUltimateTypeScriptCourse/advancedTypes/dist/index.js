@@ -66,4 +66,18 @@ let myOtherCustomUser = {
 };
 console.log(`myCustomUser: ${JSON.stringify(myCustomUser)}`);
 console.log(`myOtherCustomUser: ${JSON.stringify(myOtherCustomUser)}`);
+let myBird = {
+    fly: (msg) => console.log(msg),
+};
+myBird.fly('birds can fly');
+let myFish = {
+    swim: (msg) => console.log(msg),
+};
+myFish.swim('fish can swim');
+let myPet = {
+    fly: (msg) => console.log(msg),
+    swim: (msg) => console.log(msg),
+};
+myPet.fly('pet can fly');
+myPet.swim('pet can also swim');
 //# sourceMappingURL=index.js.map

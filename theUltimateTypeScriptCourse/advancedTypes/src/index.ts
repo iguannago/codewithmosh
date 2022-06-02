@@ -108,7 +108,7 @@ function someInfiniteLoop(someMessage: string): never {
 // someInfiniteLoop('hello');
 // console.log('some unreachable message...');
 
-//Exercises
+//Exercise 1
 
 type CustomUser = {
   name: string;
@@ -129,3 +129,29 @@ let myOtherCustomUser: CustomUser = {
 
 console.log(`myCustomUser: ${JSON.stringify(myCustomUser)}`);
 console.log(`myOtherCustomUser: ${JSON.stringify(myOtherCustomUser)}`);
+
+// Exercise 2
+
+type Bird = {
+  fly: (msg: string) => void;
+};
+let myBird: Bird = {
+  fly: (msg) => console.log(msg),
+};
+myBird.fly('birds can fly');
+
+type Fish = {
+  swim: (msg: string) => void;
+};
+let myFish: Fish = {
+  swim: (msg) => console.log(msg),
+};
+myFish.swim('fish can swim');
+
+type Pet = Bird & Fish;
+let myPet: Pet = {
+  fly: (msg) => console.log(msg),
+  swim: (msg) => console.log(msg),
+};
+myPet.fly('pet can fly');
+myPet.swim('pet can also swim');
