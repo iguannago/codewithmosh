@@ -155,3 +155,15 @@ let myPet: Pet = {
 };
 myPet.fly('pet can fly');
 myPet.swim('pet can also swim');
+
+//exercise 3
+
+const enum Weekdays {
+  MONDAY = 'Monday',
+  TUESDAY = 'Tuesday',
+  WEDNESDAY = 'Wednesday',
+  THURSDAY = 'Thursday',
+  FRIDAY = 'Friday',
+}
+
+console.log(Weekdays.FRIDAY);

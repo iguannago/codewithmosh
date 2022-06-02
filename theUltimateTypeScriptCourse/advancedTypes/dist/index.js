@@ -80,4 +80,5 @@ let myPet = {
 };
 myPet.fly('pet can fly');
 myPet.swim('pet can also swim');
+console.log("Friday");
 //# sourceMappingURL=index.js.map
