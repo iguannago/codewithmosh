@@ -82,3 +82,17 @@ console.log(ride.speed);
 
 // let phone = document.getElementById('phone') as HTMLInputElement;
 // let phone2 = <HTMLInputElement>document.getElementById('phone');
+
+// prefer the Unknown type before the any type because it has some type checking features 
+
+function handleUnkownType(someParam: unknown) {
+  let someParamIsValid = someParam ?? 'DEFAULT';
+  if (typeof someParamIsValid === 'string') {
+    console.log(someParamIsValid.toLowerCase());
+  }
+  if (typeof someParamIsValid === 'number') {
+    console.log(someParamIsValid);
+  }
+}
+
+handleUnkownType(100);

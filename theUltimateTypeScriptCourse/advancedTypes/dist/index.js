@@ -40,6 +40,14 @@ let ride = {
     speed: speed !== null && speed !== void 0 ? speed : 30,
 };
 console.log(ride.speed);
-let phone = document.getElementById('phone');
-let phone2 = document.getElementById('phone');
+function handleUnkownType(someParam) {
+    let someParamIsValid = someParam !== null && someParam !== void 0 ? someParam : 'DEFAULT';
+    if (typeof someParamIsValid === 'string') {
+        console.log(someParamIsValid.toLowerCase());
+    }
+    if (typeof someParamIsValid === 'number') {
+        console.log(someParamIsValid);
+    }
+}
+handleUnkownType(100);
 //# sourceMappingURL=index.js.map
