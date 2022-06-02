@@ -40,4 +40,6 @@ let ride = {
     speed: speed !== null && speed !== void 0 ? speed : 30,
 };
 console.log(ride.speed);
+let phone = document.getElementById('phone');
+let phone2 = document.getElementById('phone');
 //# sourceMappingURL=index.js.map

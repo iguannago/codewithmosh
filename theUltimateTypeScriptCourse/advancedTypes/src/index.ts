@@ -62,6 +62,8 @@ type Customer = {
   birthday: Date;
 };
 
+// the nullish coaelscing operator
+
 function getCustomer(id: number): Customer | null | undefined {
   return id === 0 ? null : { birthday: new Date() };
 }
@@ -75,3 +77,8 @@ let ride = {
 };
 
 console.log(ride.speed);
+
+// type assertions
+
+// let phone = document.getElementById('phone') as HTMLInputElement;
+// let phone2 = <HTMLInputElement>document.getElementById('phone');
