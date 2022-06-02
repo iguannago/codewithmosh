@@ -165,5 +165,8 @@ const enum Weekdays {
   THURSDAY = 'Thursday',
   FRIDAY = 'Friday',
 }
-
 console.log(Weekdays.FRIDAY);
+
+type weekDaysAlternative = 'Monday' | 'Tuesday';
+let weekDaysAlternative: weekDaysAlternative = 'Monday';
+console.log(weekDaysAlternative);

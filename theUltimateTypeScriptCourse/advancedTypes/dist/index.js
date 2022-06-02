@@ -81,4 +81,6 @@ let myPet = {
 myPet.fly('pet can fly');
 myPet.swim('pet can also swim');
 console.log("Friday");
+let weekDaysAlternative = 'Monday';
+console.log(weekDaysAlternative);
 //# sourceMappingURL=index.js.map
