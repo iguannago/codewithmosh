@@ -107,3 +107,25 @@ function someInfiniteLoop(someMessage: string): never {
 
 // someInfiniteLoop('hello');
 // console.log('some unreachable message...');
+
+//Exercises
+
+type CustomUser = {
+  name: string;
+  age: number;
+  occupation?: string;
+};
+
+let myCustomUser: CustomUser = {
+  name: 'David',
+  age: 43,
+  occupation: 'Senior developer',
+};
+
+let myOtherCustomUser: CustomUser = {
+  name: 'Fatima',
+  age: 39,
+};
+
+console.log(`myCustomUser: ${JSON.stringify(myCustomUser)}`);
+console.log(`myOtherCustomUser: ${JSON.stringify(myOtherCustomUser)}`);

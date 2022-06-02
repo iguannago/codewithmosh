@@ -55,6 +55,15 @@ function someInfiniteLoop(someMessage) {
         console.log(`some message: ${someMessage}`);
     }
 }
-someInfiniteLoop('hello');
-console.log('some unreachable message...');
+let myCustomUser = {
+    name: 'David',
+    age: 43,
+    occupation: 'Senior developer',
+};
+let myOtherCustomUser = {
+    name: 'Fatima',
+    age: 39,
+};
+console.log(`myCustomUser: ${JSON.stringify(myCustomUser)}`);
+console.log(`myOtherCustomUser: ${JSON.stringify(myOtherCustomUser)}`);
 //# sourceMappingURL=index.js.map
