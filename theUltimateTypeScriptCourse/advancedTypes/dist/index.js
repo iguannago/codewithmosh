@@ -50,4 +50,11 @@ function handleUnkownType(someParam) {
     }
 }
 handleUnkownType(100);
+function someInfiniteLoop(someMessage) {
+    while (true) {
+        console.log(`some message: ${someMessage}`);
+    }
+}
+someInfiniteLoop('hello');
+console.log('some unreachable message...');
 //# sourceMappingURL=index.js.map
