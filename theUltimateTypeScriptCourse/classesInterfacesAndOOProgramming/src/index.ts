@@ -1,23 +1,25 @@
 console.log('Classes, Interfaces and OO programming module');
 
 class Account {
-  readonly id: number;
-  readonly owner: string;
-  private _balance: number;
+  private _nickname?: string;
+  constructor(
+    public readonly id: number,
+    public readonly owner: string,
+    private _balance: number
+  ) {}
 
-  constructor(id: number, owner: string, balance: number) {
-    this.id = id;
-    this.owner = owner;
-    this._balance = balance;
+  public get nickname(): string {
+    return this._nickname ?? 'no nickname defined';
   }
-
+  public set nickname(value: string) {
+    this._nickname = value;
+  }
+  public get balance(): number {
+    return this._balance;
+  }
   deposit(amount: number): void {
     if (amount <= 0) throw new Error(`invalid amount: ${amount}`);
     this._balance += amount;
-  }
-
-  public get balance(): number {
-    return this._balance;
   }
 }
 
@@ -27,3 +29,6 @@ console.log(`myAccount: ${JSON.stringify(myAccount)}`);
 myAccount.deposit(20);
 console.log(`myAccount: ${JSON.stringify(myAccount)}`);
 myAccount.balance;
+console.log(myAccount.balance);
+myAccount.nickname = 'Iguannago';
+console.log(myAccount.nickname);
