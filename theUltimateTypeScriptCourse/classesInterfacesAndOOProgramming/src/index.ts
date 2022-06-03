@@ -1,8 +1,8 @@
 console.log('Classes, Interfaces and OO programming module');
 
 class Account {
-  id: number;
-  owner: string;
+  readonly id: number;
+  readonly owner: string;
   balance: number;
 
   constructor(id: number, owner: string, balance: number) {
