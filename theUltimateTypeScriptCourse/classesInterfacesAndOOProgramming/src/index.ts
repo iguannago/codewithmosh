@@ -42,3 +42,34 @@ class SeatAssignment {
 let mySeat: SeatAssignment = new SeatAssignment();
 mySeat.A1 = 'David Crespo';
 console.log(`mySeat: ${JSON.stringify(mySeat)}`);
+
+//static members
+
+class Ride {
+  private static _activeRides: number = 0;
+  public static get activeRides(): number {
+    return Ride._activeRides;
+  }
+
+  public start(): void {
+    Ride._activeRides++;
+  }
+
+  public stop(): void {
+    if (Ride._activeRides > 0) {
+      Ride._activeRides--;
+    } else {
+      Ride._activeRides = 0;
+    }
+  }
+}
+
+let myRide1: Ride = new Ride();
+myRide1.start();
+myRide1.start();
+
+let myRide2: Ride = new Ride();
+myRide2.start();
+myRide2.stop();
+
+console.log(`Ride.activeRides: ${Ride.activeRides}`);
