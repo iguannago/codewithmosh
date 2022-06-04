@@ -32,3 +32,13 @@ myAccount.balance;
 console.log(myAccount.balance);
 myAccount.nickname = 'Iguannago';
 console.log(myAccount.nickname);
+
+// index signatures
+
+class SeatAssignment {
+  [seatNumber: string]: string;
+}
+
+let mySeat: SeatAssignment = new SeatAssignment();
+mySeat.A1 = 'David Crespo';
+console.log(`mySeat: ${JSON.stringify(mySeat)}`);
