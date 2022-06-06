@@ -21,8 +21,8 @@ function wrapInArray<T>(value: T): [T] {
 console.log(wrapInArray(1));
 console.log(wrapInArray('1'));
 
-//generic interfaces
-console.log('\n\nGeneric interfaces');
+//my generic classes
+console.log('\n\nmy generic classes');
 class Result<T> {
   constructor(private _data: T | null, private _error: string | null) {}
 
@@ -60,3 +60,41 @@ let myProductResult: Result<Product> = new Result<Product>(
   null
 );
 console.log(`myProductResult: ${JSON.stringify(myProductResult)}`);
+
+//my generic interface
+console.log('\n\nmy generic interface');
+
+interface FlyBehaviour {
+  fly(): void;
+}
+
+class FlyHigh implements FlyBehaviour {
+  fly(): void {
+    console.log('I can fly high');
+  }
+}
+
+class CannotFly implements FlyBehaviour {
+  fly(): void {
+    console.log('I cannot fly');
+  }
+}
+class Bird {
+  constructor(private _name: string, private _flyBehaviour: FlyBehaviour) {}
+
+  public get name(): string {
+    return this._name;
+  }
+
+  public get flyBehaviour(): FlyBehaviour {
+    return this._flyBehaviour;
+  }
+
+  fly(): void {
+    this._flyBehaviour.fly();
+  }
+}
+let chicken: Bird = new Bird('chicken', new CannotFly());
+chicken.fly();
+let eagle: Bird = new Bird('eagle', new FlyHigh());
+eagle.fly();
