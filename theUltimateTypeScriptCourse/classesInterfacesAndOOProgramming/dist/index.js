@@ -102,4 +102,27 @@ printNames([
     new Student(1, 'David Jr', 'Crespo'),
     new Student(2, 'Juan', 'Crespo'),
 ]);
+class Shape {
+    constructor(_colour) {
+        this._colour = _colour;
+    }
+    get colour() {
+        return this._colour;
+    }
+    render() { }
+}
+class Circle extends Shape {
+    constructor(_radious, colour) {
+        super(colour);
+        this._radious = _radious;
+    }
+    get radious() {
+        return this._radious;
+    }
+    render() {
+        console.log(`Circle: radious is: ${this.radious} and colour is: ${this.colour}`);
+    }
+}
+let myCircle = new Circle(10, 'red');
+myCircle.render();
 //# sourceMappingURL=index.js.map

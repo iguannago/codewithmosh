@@ -126,3 +126,37 @@ printNames([
   new Student(1, 'David Jr', 'Crespo'),
   new Student(2, 'Juan', 'Crespo'),
 ]);
+
+//private and protected members
+// private can be accessed from withing the class where the method is defined
+// protected is the same as private but they can also be accessed from the inherated classes.
+
+//abstract classes and methods
+
+abstract class Shape {
+  constructor(private _colour: string) {}
+
+  public get colour(): string {
+    return this._colour;
+  }
+
+  abstract render(): void;
+}
+
+class Circle extends Shape {
+  constructor(private _radious: number, colour: string) {
+    super(colour);
+  }
+  public get radious(): number {
+    return this._radious;
+  }
+
+  public override render(): void {
+    console.log(
+      `Circle: radious is: ${this.radious} and colour is: ${this.colour}`
+    );
+  }
+}
+
+let myCircle: Circle = new Circle(10, 'red');
+myCircle.render();
