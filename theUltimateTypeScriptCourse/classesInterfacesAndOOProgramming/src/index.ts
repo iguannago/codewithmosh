@@ -160,3 +160,30 @@ class Circle extends Shape {
 
 let myCircle: Circle = new Circle(10, 'red');
 myCircle.render();
+
+//interfaces
+abstract class Calendar {
+  constructor(public name: string) {}
+
+  abstract addEvent(): void;
+  abstract removeEvent(): void;
+}
+
+interface ICalendar {
+  name: string;
+  addEvent(): void;
+  removeEvent(): void;
+}
+
+class GoogleCalendar implements ICalendar {
+  constructor(public name: string) {}
+  addEvent(): void {
+    throw new Error('Method not implemented.');
+  }
+  removeEvent(): void {
+    throw new Error('Method not implemented.');
+  }
+}
+
+let myGoogleCalendar: GoogleCalendar = new GoogleCalendar('my google calendar');
+console.log(myGoogleCalendar.name);

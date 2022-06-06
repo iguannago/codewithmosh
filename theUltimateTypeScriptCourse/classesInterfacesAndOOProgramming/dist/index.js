@@ -109,7 +109,6 @@ class Shape {
     get colour() {
         return this._colour;
     }
-    render() { }
 }
 class Circle extends Shape {
     constructor(_radious, colour) {
@@ -125,4 +124,23 @@ class Circle extends Shape {
 }
 let myCircle = new Circle(10, 'red');
 myCircle.render();
+class Calendar {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class GoogleCalendar {
+    constructor(name) {
+        this.name = name;
+    }
+    addEvent() {
+        throw new Error('Method not implemented.');
+    }
+    removeEvent() {
+        throw new Error('Method not implemented.');
+    }
+}
+let myGoogleCalendar = new GoogleCalendar('my google calendar');
+console.log(myGoogleCalendar.name);
+myGoogleCalendar.addEvent();
 //# sourceMappingURL=index.js.map
