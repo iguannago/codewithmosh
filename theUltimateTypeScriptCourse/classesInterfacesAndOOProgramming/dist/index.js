@@ -59,4 +59,29 @@ let myRide2 = new Ride();
 myRide2.start();
 myRide2.stop();
 console.log(`Ride.activeRides: ${Ride.activeRides}`);
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    walk() {
+        console.log('walking...');
+    }
+}
+class Student extends Person {
+    constructor(studentId, firtName, lastName) {
+        super(firtName, lastName);
+        this.studentId = studentId;
+    }
+    takeExam() {
+        console.log('taking an exam...');
+    }
+}
+let student = new Student(1, 'David', 'Crespo');
+console.log(student.fullName);
+student.walk();
+student.takeExam();
 //# sourceMappingURL=index.js.map

@@ -73,3 +73,32 @@ myRide2.start();
 myRide2.stop();
 
 console.log(`Ride.activeRides: ${Ride.activeRides}`);
+
+// inheritance
+
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  walk(): void {
+    console.log('walking...');
+  }
+}
+
+class Student extends Person {
+  constructor(public studentId: number, firtName: string, lastName: string) {
+    super(firtName, lastName);
+  }
+
+  takeExam(): void {
+    console.log('taking an exam...');
+  }
+}
+
+let student = new Student(1, 'David', 'Crespo');
+console.log(student.fullName);
+student.walk();
+student.takeExam();
