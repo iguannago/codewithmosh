@@ -84,4 +84,11 @@ let student = new Student(1, 'David', 'Crespo');
 console.log(student.fullName);
 student.walk();
 student.takeExam();
+class Teacher extends Person {
+    get fullName() {
+        return `professor: ${super.fullName}`;
+    }
+}
+let teacher = new Teacher('John', 'Smith');
+console.log(teacher.fullName);
 //# sourceMappingURL=index.js.map

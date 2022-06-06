@@ -79,7 +79,7 @@ console.log(`Ride.activeRides: ${Ride.activeRides}`);
 class Person {
   constructor(public firstName: string, public lastName: string) {}
 
-  get fullName() {
+  get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }
 
@@ -102,3 +102,12 @@ let student = new Student(1, 'David', 'Crespo');
 console.log(student.fullName);
 student.walk();
 student.takeExam();
+
+class Teacher extends Person {
+  override get fullName(): string {
+    return `professor: ${super.fullName}`;
+  }
+}
+
+let teacher = new Teacher('John', 'Smith');
+console.log(teacher.fullName);
