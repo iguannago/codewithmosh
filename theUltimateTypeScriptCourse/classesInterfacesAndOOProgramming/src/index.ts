@@ -187,3 +187,20 @@ class GoogleCalendar implements ICalendar {
 
 let myGoogleCalendar: GoogleCalendar = new GoogleCalendar('my google calendar');
 console.log(myGoogleCalendar.name);
+
+// exercises
+
+class Logger {
+  constructor(private _fileName: string) {}
+  public get fileName(): string {
+    return this._fileName;
+  }
+
+  writeMessage(message: string): void {
+    console.log(
+      `writting message: ${message} into filename: ${this._fileName}`
+    );
+  }
+}
+let myLogger: Logger = new Logger('org.expressjs');
+myLogger.writeMessage('DEBUG');

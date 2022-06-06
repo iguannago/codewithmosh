@@ -142,5 +142,17 @@ class GoogleCalendar {
 }
 let myGoogleCalendar = new GoogleCalendar('my google calendar');
 console.log(myGoogleCalendar.name);
-myGoogleCalendar.addEvent();
+class Logger {
+    constructor(_fileName) {
+        this._fileName = _fileName;
+    }
+    get fileName() {
+        return this._fileName;
+    }
+    writeMessage(message) {
+        console.log(`writting message: ${message} into filename: ${this._fileName}`);
+    }
+}
+let myLogger = new Logger('org.expressjs');
+myLogger.writeMessage('DEBUG');
 //# sourceMappingURL=index.js.map
