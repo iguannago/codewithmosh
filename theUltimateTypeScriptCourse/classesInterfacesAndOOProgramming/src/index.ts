@@ -111,3 +111,18 @@ class Teacher extends Person {
 
 let teacher = new Teacher('John', 'Smith');
 console.log(teacher.fullName);
+
+//polymorphism
+
+function printNames(people: Person[]) {
+  people.forEach((p: Person) => {
+    console.log(p.fullName);
+  });
+}
+
+printNames([
+  new Teacher('David', 'Crespo'),
+  new Person('Fatima', 'Lozano'),
+  new Student(1, 'David Jr', 'Crespo'),
+  new Student(2, 'Juan', 'Crespo'),
+]);
