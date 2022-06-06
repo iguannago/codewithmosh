@@ -204,3 +204,37 @@ class Logger {
 }
 let myLogger: Logger = new Logger('org.expressjs');
 myLogger.writeMessage('DEBUG');
+
+console.log(`\n\nExercise2`);
+class Person2 {
+  constructor(public firstName: string, public lastName: string) {}
+
+  get fullName(): string {
+    return `fullName: ${this.firstName} ${this.lastName}`;
+  }
+}
+let myPerson2: Person2 = new Person2('David', 'Crespo');
+console.log(myPerson2.fullName);
+
+class Employee extends Person2 {
+  constructor(private _salary: number, firstName: string, lastName: string) {
+    super(firstName, lastName);
+  }
+  get salary(): number {
+    return this._salary;
+  }
+}
+let myEmployee: Employee = new Employee(100, 'Fatima', 'Lozano');
+console.log(myEmployee.fullName);
+console.log(myEmployee.salary);
+
+let myPeopleList: Person2[] = [myPerson2, myEmployee];
+myPeopleList.forEach((p) => {
+  if (p instanceof Employee) {
+    console.log('employee');
+    console.log(`${p.fullName} with ${p.salary} salary`);
+  } else {
+    console.log('person2');
+    console.log(p.fullName);
+  }
+});

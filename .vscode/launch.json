@@ -10,7 +10,7 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/theUltimateTypeScriptCourse/hello-world/src/index.ts",
+      "program": "${workspaceFolder}/theUltimateTypeScriptCourse/classesInterfacesAndOOProgramming/src/index.ts",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
