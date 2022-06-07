@@ -104,4 +104,36 @@ let listOfThings = [
     new Product('some product'),
 ];
 listOfThings.forEach((thing) => console.log(`thing: ${JSON.stringify(thing)}`));
+console.log(`\n\n extending generic classes`);
+class Store {
+    constructor() {
+        this._objectList = [];
+    }
+    add(object) {
+        console.log(`adding object: ${JSON.stringify(object)}`);
+        this._objectList.push(object);
+    }
+    findByProperty(property, value) {
+        return this._objectList.find((obj) => obj[property] === value);
+    }
+}
+class CompressibleStore extends Store {
+    compress() { }
+}
+class SearchableStore extends Store {
+    findByName(name) {
+        return this._objectList.find((obj) => obj.name === name);
+    }
+}
+class ProductStore extends Store {
+    filterByCategory(category) {
+        return this._objectList.filter((p) => p.name === category);
+    }
+}
+console.log(`\n\n the keyof operator`);
+let store = new Store();
+store.add({ name: 'some product', price: 100 });
+store.add({ name: 'some product2', price: 200 });
+console.log(`findByProperty: ${JSON.stringify(store.findByProperty('name', 'some product'))}`);
+console.log(`findByProperty: ${JSON.stringify(store.findByProperty('price', 200))}`);
 //# sourceMappingURL=index.js.map

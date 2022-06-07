@@ -144,7 +144,7 @@ listOfThings.forEach((thing) => console.log(`thing: ${JSON.stringify(thing)}`));
 
 // extending generic classes
 console.log(`\n\n extending generic classes`);
-interface Product {
+interface ProductForStore {
   name: string;
   price: number;
 }
@@ -153,8 +153,12 @@ class Store<T> {
   protected _objectList: T[] = [];
 
   add(object: T): void {
-    console.log(`adding object: ${object}`);
+    console.log(`adding object: ${JSON.stringify(object)}`);
     this._objectList.push(object);
+  }
+
+  findByProperty(property: keyof T, value: unknown): T | undefined {
+    return this._objectList.find((obj) => obj[property] === value);
   }
 }
 
@@ -163,13 +167,27 @@ class CompressibleStore<T> extends Store<T> {
 }
 
 class SearchableStore<T extends { name: string }> extends Store<T> {
-  find(name: string): T | undefined {
+  findByName(name: string): T | undefined {
     return this._objectList.find((obj) => obj.name === name);
   }
 }
 
-class ProductStore extends Store<Product> {
-  filterByCategory(category: string): Product[] {
+class ProductStore extends Store<ProductForStore> {
+  filterByCategory(category: string): ProductForStore[] {
     return this._objectList.filter((p) => p.name === category);
   }
 }
+
+// the keyof operator
+console.log(`\n\n the keyof operator`);
+let store = new Store<ProductForStore>();
+store.add({ name: 'some product', price: 100 });
+store.add({ name: 'some product2', price: 200 });
+console.log(
+  `findByProperty: ${JSON.stringify(
+    store.findByProperty('name', 'some product')
+  )}`
+);
+console.log(
+  `findByProperty: ${JSON.stringify(store.findByProperty('price', 200))}`
+);
