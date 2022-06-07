@@ -32,26 +32,37 @@ class Result {
         return this._data;
     }
 }
-class User {
+class Thing {
+}
+class User extends Thing {
     constructor(_username) {
+        super();
         this._username = _username;
     }
     get username() {
         return this._username;
     }
 }
-let myUserResult = new Result(new User('some username'), null);
+let myUserResult = new Result(new User('some username'), '');
 console.log(`myUserResult: ${JSON.stringify(myUserResult)}`);
-class Product {
+class Product extends Thing {
     constructor(_title) {
+        super();
         this._title = _title;
     }
     get title() {
         return this._title;
     }
 }
-let myProductResult = new Result(new Product('some product'), null);
+let myProductResult = new Result(new Product('some product'), '');
 console.log(`myProductResult: ${JSON.stringify(myProductResult)}`);
+function callUrl(url, data) {
+    console.log(`making call to ${url}`);
+    return new Result(data, '');
+}
+console.log(`callUrl: ${JSON.stringify(callUrl('http://users/1', new User('David Crespo')))}`);
+console.log(`callUrl: ${JSON.stringify(callUrl('http://products/1', new Product('my Product')))}`);
+console.log(`callUrl: ${JSON.stringify(callUrl(null, null))}`);
 console.log('\n\nmy generic interface');
 class FlyHigh {
     fly() {
@@ -82,4 +93,15 @@ let chicken = new Bird('chicken', new CannotFly());
 chicken.fly();
 let eagle = new Bird('eagle', new FlyHigh());
 eagle.fly();
+console.log('\n\ngeneric constraints');
+function echo(value) {
+    return value;
+}
+console.log(`echo: ${JSON.stringify(echo(new User('some user')))}`);
+console.log(`echo: ${JSON.stringify(echo(new Product('some product')))}`);
+let listOfThings = [
+    new User('some user'),
+    new Product('some product'),
+];
+listOfThings.forEach((thing) => console.log(`thing: ${JSON.stringify(thing)}`));
 //# sourceMappingURL=index.js.map
