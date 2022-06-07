@@ -132,8 +132,19 @@ class ProductStore extends Store {
 }
 console.log(`\n\n the keyof operator`);
 let store = new Store();
-store.add({ name: 'some product', price: 100 });
-store.add({ name: 'some product2', price: 200 });
+store.add({ name: 'some product', price: 100, description: 'some desc' });
+store.add({
+    name: 'some product2',
+    price: 200,
+    description: 'some other desc',
+});
 console.log(`findByProperty: ${JSON.stringify(store.findByProperty('name', 'some product'))}`);
 console.log(`findByProperty: ${JSON.stringify(store.findByProperty('price', 200))}`);
+console.log(`\n\n the type mapping`);
+let readOnlyProductForStore = {
+    name: 'laptop',
+    price: 3000,
+    description: 'laptop description',
+};
+console.log(`readOnlyProductForStore: ${JSON.stringify(readOnlyProductForStore)}`);
 //# sourceMappingURL=index.js.map

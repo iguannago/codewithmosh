@@ -147,6 +147,7 @@ console.log(`\n\n extending generic classes`);
 interface ProductForStore {
   name: string;
   price: number;
+  description: string;
 }
 
 class Store<T> {
@@ -181,8 +182,12 @@ class ProductStore extends Store<ProductForStore> {
 // the keyof operator
 console.log(`\n\n the keyof operator`);
 let store = new Store<ProductForStore>();
-store.add({ name: 'some product', price: 100 });
-store.add({ name: 'some product2', price: 200 });
+store.add({ name: 'some product', price: 100, description: 'some desc' });
+store.add({
+  name: 'some product2',
+  price: 200,
+  description: 'some other desc',
+});
 console.log(
   `findByProperty: ${JSON.stringify(
     store.findByProperty('name', 'some product')
@@ -191,3 +196,25 @@ console.log(
 console.log(
   `findByProperty: ${JSON.stringify(store.findByProperty('price', 200))}`
 );
+
+// the type mapping
+console.log(`\n\n the type mapping`);
+type ReadOnly<T> = {
+  readonly [key in keyof T]: T[key];
+};
+
+let readOnlyProductForStore: ReadOnly<ProductForStore> = {
+  name: 'laptop',
+  price: 3000,
+  description: 'laptop description',
+};
+
+console.log(
+  `readOnlyProductForStore: ${JSON.stringify(readOnlyProductForStore)}`
+);
+
+type Optional<T> = {
+  [key in keyof T]?: T[key];
+};
+
+//check out the TS utility types: https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html 
