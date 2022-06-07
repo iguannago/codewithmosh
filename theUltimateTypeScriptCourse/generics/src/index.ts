@@ -141,3 +141,35 @@ let listOfThings: Thing[] = [
 ];
 
 listOfThings.forEach((thing) => console.log(`thing: ${JSON.stringify(thing)}`));
+
+// extending generic classes
+console.log(`\n\n extending generic classes`);
+interface Product {
+  name: string;
+  price: number;
+}
+
+class Store<T> {
+  protected _objectList: T[] = [];
+
+  add(object: T): void {
+    console.log(`adding object: ${object}`);
+    this._objectList.push(object);
+  }
+}
+
+class CompressibleStore<T> extends Store<T> {
+  compress() {}
+}
+
+class SearchableStore<T extends { name: string }> extends Store<T> {
+  find(name: string): T | undefined {
+    return this._objectList.find((obj) => obj.name === name);
+  }
+}
+
+class ProductStore extends Store<Product> {
+  filterByCategory(category: string): Product[] {
+    return this._objectList.filter((p) => p.name === category);
+  }
+}
