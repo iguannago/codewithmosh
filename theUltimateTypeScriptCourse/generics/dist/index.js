@@ -147,4 +147,13 @@ let readOnlyProductForStore = {
     description: 'laptop description',
 };
 console.log(`readOnlyProductForStore: ${JSON.stringify(readOnlyProductForStore)}`);
+console.log('\n\n exercises');
+function echo2(arg) {
+    return arg;
+}
+function printName2(obj) {
+    console.log(obj.name);
+}
+let numberIdEntity = { id: 2 };
+console.log(`numberIdEntity: ${numberIdEntity.id}`);
 //# sourceMappingURL=index.js.map

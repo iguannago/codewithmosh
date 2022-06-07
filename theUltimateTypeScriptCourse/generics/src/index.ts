@@ -217,4 +217,31 @@ type Optional<T> = {
   [key in keyof T]?: T[key];
 };
 
-//check out the TS utility types: https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html 
+//check out the TS utility types: https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html
+
+//exercises
+console.log('\n\n exercises');
+function echo2<T>(arg: T): T {
+  return arg;
+}
+
+function printName2<T extends { name: string }>(obj: T) {
+  console.log(obj.name);
+}
+
+interface Entity<T> {
+  id: T;
+}
+
+let numberIdEntity: Entity<number> = { id: 2 };
+console.log(`numberIdEntity: ${numberIdEntity.id}`);
+
+interface UserExercise {
+  userId: number;
+  username: string;
+}
+
+let keyOfUserExercise: keyof UserExercise;
+
+keyOfUserExercise = 'userId';
+keyOfUserExercise = 'username';
