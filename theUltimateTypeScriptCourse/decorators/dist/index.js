@@ -89,4 +89,18 @@ __decorate([
 ], User.prototype, "password", void 0);
 let myUser = new User('12df4d');
 console.log(myUser.password);
+console.log('\n\nexercises');
+function Sauce(sauce) {
+    return (constructor) => {
+        console.log(sauce);
+        constructor.prototype.sauce = sauce;
+    };
+}
+let Pizza = class Pizza {
+};
+Pizza = __decorate([
+    Sauce('pesto')
+], Pizza);
+let myPizza = new Pizza();
+console.log(myPizza);
 //# sourceMappingURL=index.js.map

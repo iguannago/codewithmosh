@@ -100,3 +100,19 @@ class User {
 
 let myUser: User = new User('12df4d');
 console.log(myUser.password);
+
+// exercises
+console.log('\n\nexercises');
+
+function Sauce(sauce: string) {
+  return (constructor: Function) => {
+    console.log(sauce);
+    constructor.prototype.sauce = sauce;
+  };
+}
+
+@Sauce('pesto')
+class Pizza {}
+
+let myPizza: Pizza = new Pizza();
+console.log(myPizza);
