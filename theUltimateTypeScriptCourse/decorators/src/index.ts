@@ -32,12 +32,35 @@ function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
   };
 }
 
+// accesor decorators
+console.log('\n\n method decorators');
+
+function Capitalise(
+  target: any,
+  methodName: string,
+  descriptor: PropertyDescriptor
+) {
+  const original = descriptor.get;
+  descriptor.get = function () {
+    const result = original?.call(this);
+    return typeof result === 'string' ? result.toUpperCase() : result;
+  };
+}
+
 class Person {
+  constructor(public firstName: string, public lastName: string) {}
+
+  @Capitalise
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
   @Log
   say(message: string) {
     console.log(`another message: ${message}`);
   }
 }
 
-let myPerson: Person = new Person();
+let myPerson: Person = new Person('David', 'Crespo');
 myPerson.say('hello world!');
+console.log(myPerson.fullName);

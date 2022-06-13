@@ -33,14 +33,32 @@ function Log(target, methodName, descriptor) {
         console.log('after...');
     };
 }
+function Capitalise(target, methodName, descriptor) {
+    const original = descriptor.get;
+    descriptor.get = function () {
+        const result = original === null || original === void 0 ? void 0 : original.call(this);
+        return typeof result === 'string' ? result.toUpperCase() : result;
+    };
+}
 class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
     say(message) {
         console.log(`another message: ${message}`);
     }
 }
 __decorate([
+    Capitalise
+], Person.prototype, "fullName", null);
+__decorate([
     Log
 ], Person.prototype, "say", null);
-let myPerson = new Person();
+let myPerson = new Person('David', 'Crespo');
 myPerson.say('hello world!');
+console.log(myPerson.fullName);
 //# sourceMappingURL=index.js.map
