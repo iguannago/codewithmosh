@@ -33,6 +33,7 @@ function Log(target, methodName, descriptor) {
         console.log('after...');
     };
 }
+console.log('\n\n method decorators');
 function Capitalise(target, methodName, descriptor) {
     const original = descriptor.get;
     descriptor.get = function () {
@@ -61,4 +62,31 @@ __decorate([
 let myPerson = new Person('David', 'Crespo');
 myPerson.say('hello world!');
 console.log(myPerson.fullName);
+console.log('\n\nproperty decorator');
+function MinLength(length) {
+    return (target, propertyName) => {
+        let value;
+        const descriptor = {
+            get() {
+                return value;
+            },
+            set(newValue) {
+                if (newValue.length < length)
+                    throw new Error(`${propertyName} should be at least ${length} chars long.`);
+                value = newValue;
+            },
+        };
+        Object.defineProperty(target, propertyName, descriptor);
+    };
+}
+class User {
+    constructor(password) {
+        this.password = password;
+    }
+}
+__decorate([
+    MinLength(4)
+], User.prototype, "password", void 0);
+let myUser = new User('12df4d');
+console.log(myUser.password);
 //# sourceMappingURL=index.js.map

@@ -64,3 +64,39 @@ class Person {
 let myPerson: Person = new Person('David', 'Crespo');
 myPerson.say('hello world!');
 console.log(myPerson.fullName);
+
+// property decorator
+console.log('\n\nproperty decorator');
+
+function MinLength(length: number) {
+  return (target: any, propertyName: string) => {
+    let value: string;
+
+    const descriptor: PropertyDescriptor = {
+      get() {
+        return value;
+      },
+      set(newValue: string) {
+        if (newValue.length < length)
+          throw new Error(
+            `${propertyName} should be at least ${length} chars long.`
+          );
+        value = newValue;
+      },
+    };
+
+    Object.defineProperty(target, propertyName, descriptor);
+  };
+}
+
+class User {
+  @MinLength(4)
+  password: string;
+
+  constructor(password: string) {
+    this.password = password;
+  }
+}
+
+let myUser: User = new User('12df4d');
+console.log(myUser.password);
