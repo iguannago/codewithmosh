@@ -13,9 +13,14 @@ function Component(constructor) {
         console.log('Inserting the component in the DOM');
     };
 }
+function Pipe(constructor) {
+    console.log('my pipe decorator');
+    constructor.prototype.pipe = true;
+}
 let ProfileComponent = class ProfileComponent {
 };
 ProfileComponent = __decorate([
+    Pipe,
     Component
 ], ProfileComponent);
 //# sourceMappingURL=index.js.map

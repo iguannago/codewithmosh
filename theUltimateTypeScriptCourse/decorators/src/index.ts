@@ -10,5 +10,11 @@ function Component(constructor: Function) {
   };
 }
 
+function Pipe(constructor: Function) {
+  console.log('my pipe decorator');
+  constructor.prototype.pipe = true;
+}
+
+@Pipe
 @Component
 class ProfileComponent {}
