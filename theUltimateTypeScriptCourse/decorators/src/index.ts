@@ -18,3 +18,26 @@ function Pipe(constructor: Function) {
 @Pipe
 @Component
 class ProfileComponent {}
+
+// method decorators
+console.log('\n\n method decorators');
+
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  console.log('Log decorator...');
+  const original = descriptor.value as Function;
+  descriptor.value = function (...args: any) {
+    console.log('before...');
+    original.call(this, ...args);
+    console.log('after...');
+  };
+}
+
+class Person {
+  @Log
+  say(message: string) {
+    console.log(`another message: ${message}`);
+  }
+}
+
+let myPerson: Person = new Person();
+myPerson.say('hello world!');

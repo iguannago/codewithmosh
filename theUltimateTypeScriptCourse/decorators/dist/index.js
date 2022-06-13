@@ -23,4 +23,24 @@ ProfileComponent = __decorate([
     Pipe,
     Component
 ], ProfileComponent);
+console.log('\n\n method decorators');
+function Log(target, methodName, descriptor) {
+    console.log('Log decorator...');
+    const original = descriptor.value;
+    descriptor.value = function (...args) {
+        console.log('before...');
+        original.call(this, ...args);
+        console.log('after...');
+    };
+}
+class Person {
+    say(message) {
+        console.log(`another message: ${message}`);
+    }
+}
+__decorate([
+    Log
+], Person.prototype, "say", null);
+let myPerson = new Person();
+myPerson.say('hello world!');
 //# sourceMappingURL=index.js.map
