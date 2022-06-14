@@ -19,4 +19,4 @@ var Format;
     Format[Format["Raw"] = 0] = "Raw";
     Format[Format["Compressed"] = 1] = "Compressed";
 })(Format = exports.Format || (exports.Format = {}));
-//# sourceMappingURL=storage.js.map
+//# sourceMappingURL=Storage.js.map
