@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import NewReminder from './components/NewReminder';
 import ReminderList from './components/ReminderList';
