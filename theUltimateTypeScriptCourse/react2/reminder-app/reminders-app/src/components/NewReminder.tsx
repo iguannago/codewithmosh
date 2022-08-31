@@ -4,7 +4,7 @@ interface NewReminderProps {
   onAddReminder: (title: string) => void;
 }
 
-function NewReminder({ onAddReminder }: NewReminderProps): JSX.Element {
+function NewReminder({ onAddReminder }: NewReminderProps) {
   const [title, setTitle] = useState('');
 
   const submitForm = (e: React.FormEvent) => {
