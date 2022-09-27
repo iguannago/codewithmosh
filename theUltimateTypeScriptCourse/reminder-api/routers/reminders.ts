@@ -1,7 +1,7 @@
 import { Router } from 'express';
+const router = Router();
 import CreateReminderDto from '../dtos/reminderDto';
 import Reminder from '../models/reminder';
-const router = Router();
 const reminderList: Reminder[] = [];
 
 router.get('/', (req, res) => {
